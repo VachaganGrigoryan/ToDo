@@ -1,14 +1,14 @@
-from mongoengine import Document, StringField, IntField, DateField, ImageField
 from datetime import datetime
-from flask_pymongo import PyMongo
-
-
+from mongoengine import Document
+from mongoengine.fields import (
+    DateTimeField, StringField
+)
 class ToDo(Document):
-    id = IntField(primary_key=True)
     title = StringField(max_length=60, required=True)
     content = StringField(max_length=200)
-    image = ImageField(size=2000)
-    created = DateField(default=datetime.utcnow)
+    img = StringField()
+    created = DateTimeField(default=datetime.now)
+    color = StringField()
 
-    def __repr__(self):
-        return self.id
+    # def __repr__(self):
+    #     return self

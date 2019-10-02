@@ -5,23 +5,71 @@
 {% endblock  %}
 
 {% block body %}
-<div class="content">
+<div class="container">
     <div class="row">
-        <div class="col-2">
-            <form class="form" action="/" method="POST">
+        <div class="col">
+            <form class="form" action="/" method="POST" enctype="multipart/form-data">
                 <div class="form-label-group">
                   <input type="text" id="title" name="title" class="form-control" placeholder="Title" required="" autofocus="">
-                  <label for="inputEmail">Title</label>
+                  <label for="title">Վերնագիր</label>
                 </div>
               
                 <div class="form-label-group">
-                  <textarea type="text" id="content" name="content" class="form-control" placeholder="Content" required=""> </textarea>
-                  <label for="inputPassword">Content</label>
+                  <textarea type="text" id="content" name="content" class="form-control" required=""  placeholder="Content"> </textarea>
+                  <label for="content">Նշում</label>
                 </div>
-              
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+                <div class="form-label-group">
+                  <input type="file" id="image" name="image" class="form-control" required="" placeholder="Նկար">
+                  <label for="image">Նկար</label>
+                </div>
+                
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="color" id="inlineRadio1" value="primary">
+                    <label class="form-check-label" for="inlineRadio1">primary</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="color" id="inlineRadio2" value="secondary">
+                    <label class="form-check-label" for="inlineRadio2">secondary</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="color" id="inlineRadio3" value="success">
+                    <label class="form-check-label" for="inlineRadio3">success</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="color" id="inlineRadio3" value="danger">
+                    <label class="form-check-label" for="inlineRadio3">danger</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="color" id="inlineRadio3" value="warning">
+                    <label class="form-check-label" for="inlineRadio3">warning</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="color" id="inlineRadio3" value="info">
+                    <label class="form-check-label" for="inlineRadio3">info</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="color" id="inlineRadio3" value="dark">
+                    <label class="form-check-label" for="inlineRadio3">dark</label>
+                  </div>
+                
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Պահպանել</button>
               </form>
         </div>
+    </div>
+
+    <div class="row">
+      {% for task in tasks %}
+      <div class="card mb-3 text-white bg-{{ task.color }}" style="max-width: 18rem;">
+          <img src="{{ task.img }}" class="card-img-top" alt="...">
+          <div class="card-header">{{ task.title }}</div>
+          <div class="card-body">
+            <h5 class="card-title">Success card title</h5> 
+            <p class="card-text">{{ task.content }}</p>
+            <a href="/update/{{ task.id }}" class="btn btn-success">Խմբագրել</a>
+            <a href="/delete/{{ task.id }}" class="btn btn-danger">Ջնջել</a>
+          </div>
+      </div>
+      {% endfor %}
     </div>
 </div>
 

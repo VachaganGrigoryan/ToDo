@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Update To Do </title>
+{% endblock  %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form class="form" action="/update/{{task.id}}" method="POST" enctype="multipart/form-data">
+                <div class="form-label-group">
+                    <input type="text" id="title" name="title" class="form-control" placeholder="Title" required="" value="{{ task.title }}" autofocus="">
+                    <label for="title">Վերնագիր</label>
+                </div>
+                
+                <div class="form-label-group">
+                    <textarea type="text" id="content" name="content" class="form-control"  required="" placeholder="Content">{{ task.content }}</textarea>
+                    <label for="content">Նշում</label>
+                </div>
+                <div class="form-label-group">
+                    <img src="{{ task.img }}" class="card-img-top" alt="...">
+                    <input type="file" id="image" name="image" class="form-control" placeholder="Նկար">
+                    <label for="image">Նկար</label>
+                </div>
+                
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Պահպանել</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock  %}

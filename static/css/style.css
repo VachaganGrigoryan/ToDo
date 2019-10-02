@@ -1,0 +1,28 @@
+#inlineRadio1{
+    color: #16B67F;
+}
+#inlineRadio1{
+    color: #16B6df;
+}
+#inlineRadio1{
+    color: #16accf;
+}
+#inlineRadio1{
+    color: #45B6df;
+}
+input:checked + label{
+    color: #16B67F;
+}
+input:checked + label i{
+    background-image: url('http://kuzroman.com/images/jswiddler/radio-button.svg');
+}
+label i{
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background: #fff url('http://kuzroman.com/images/jswiddler/circle.svg') no-repeat 50%;
+    background-size: 12px;
+    position: relative;
+    top: 1px;
+    left: -2px;
+}
